@@ -1,6 +1,8 @@
-package dev.java10x.CadastroDeNinjas;
+package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import jakarta.persistence.*;
+
+import java.util.List;
 
 // Necessita de baixar outra entidade, a Spring Data JPA, para uma classe ser uma entidade no banco de dados
 // Entity transforma uma classe me entidade do banco de dados
@@ -10,10 +12,19 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String nome;
-    String email;
-    int idade;
+
+    private Long id;
+
+    private String nome;
+
+    private String email;
+
+    private int idade;
+
+    // @ManyToOne - Muitos ninjas para uma única missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Foreign Key (chave estrangeira)
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
