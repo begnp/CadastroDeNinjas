@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 //localhost:8080/rota
 
 @RestController
-@RequestMapping("missoes")
+@RequestMapping("/missoes")
 public class MissoesController {
 
     // Get - Enviar requisicao para mostrar missoes
